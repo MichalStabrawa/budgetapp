@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.scss";
+import NavMenu from "./components/NavMenu";
+import Header from "./components/Header";
+import StartSection from "./components/StartSection";
+import FormSection from "./components/FormSection";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const el = document.querySelector(".btn-burger");
+
+class App extends Component {
+  state = {
+    menu: [{ name: "Link1" }, { name: "link2" }],
+    flag: false,
+    isActive: false,
+  };
+
+  handleClick = () => {
+    this.setState({
+      flag: !this.state.flag,
+    });
+  };
+
+  showFormSection = () => {
+    this.setState({
+      isActive: true,
+    });
+    console.log(this.el);
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <NavMenu
+          item={this.state.menu}
+          active={this.state.flag}
+          click={this.handleClick}
+        />
+        <Header />
+        <StartSection
+          click={this.showFormSection}
+          isActive={this.state.isActive}
+        />
+        {this.state.isActive ? <FormSection /> : null}
+      </div>
+    );
+  }
 }
 
 export default App;
