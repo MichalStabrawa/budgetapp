@@ -115,3 +115,9 @@ body .get-start .img-wrapper {
 .hide {
   display: none;
 }
+
+footer {
+  height: 100px;
+  background: grey;
+  padding: 20px;
+}

@@ -5,6 +5,7 @@ import NavMenu from "./components/NavMenu";
 import Header from "./components/Header";
 import StartSection from "./components/StartSection";
 import FormSection from "./components/FormSection";
+import Footer from "./components/Footer";
 
 const el = document.querySelector(".btn-burger");
 
@@ -13,6 +14,7 @@ class App extends Component {
     menu: [{ name: "Link1" }, { name: "link2" }],
     flag: false,
     isActive: false,
+    name: "Test",
   };
 
   handleClick = () => {
@@ -42,6 +44,7 @@ class App extends Component {
           isActive={this.state.isActive}
         />
         {this.state.isActive ? <FormSection /> : null}
+        <Footer name={this.state.name} />
       </div>
     );
   }

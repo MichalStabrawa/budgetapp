@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import FormSectionAdditional from "./FormSectionAdditional";
 
 class FormSection extends Component {
   state = {
@@ -7,6 +8,8 @@ class FormSection extends Component {
     moneyValue: null,
     rangeValue: 0,
     progress: null,
+    valueIsActive: false,
+    additionalValue: null,
   };
 
   handleChange = (e) => {
@@ -16,10 +19,22 @@ class FormSection extends Component {
     });
   };
 
+  handleChangeAdditional = (e) => {
+    if (this.state.value >= e.target.value) {
+      this.setState({
+        additionalValue: e.target.value,
+        moneyValue: this.state.value - e.target.value,
+      });
+    } else {
+      alert("Twoje wydatki są za duże ");
+    }
+  };
+
   showValue = () => {
     this.setState({
       moneyValue: this.state.value,
       rangeValue: 0,
+      valueIsActive: true,
     });
   };
 
@@ -116,6 +131,19 @@ class FormSection extends Component {
               ></input>
               <span>{this.state.rangeValue}pln</span>
             </div>
+          </div>
+
+          <div className="row">
+            <div className="col">
+              {(this.state.value != null) &
+              (this.state.valueIsActive === true) ? (
+                <FormSectionAdditional
+                  change={this.handleChangeAdditional}
+                  salary={this.state.value}
+                />
+              ) : null}
+            </div>
+            <div className="col"></div>
           </div>
         </div>
       </section>
