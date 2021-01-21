@@ -11,6 +11,7 @@ class FormSectionAdditional extends Component {
           <input
             type="number"
             min="0"
+            max={`${salaryValue}`}
             className="form-control"
             placeholder=""
             onChange={this.props.change}

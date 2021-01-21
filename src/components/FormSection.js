@@ -15,18 +15,22 @@ class FormSection extends Component {
   handleChange = (e) => {
     console.log(e.target.value);
     this.setState({
-      value: e.target.value,
+      value: parseInt(e.target.value),
+      additionalValue: null,
     });
   };
 
   handleChangeAdditional = (e) => {
     if (this.state.value >= e.target.value) {
       this.setState({
-        additionalValue: e.target.value,
-        moneyValue: this.state.value - e.target.value,
+        additionalValue: parseInt(e.target.value),
+        moneyValue: this.state.value - parseInt(e.target.value),
       });
     } else {
       alert("Twoje wydatki są za duże ");
+      this.setState({
+        additionalValue: this.state.value,
+      });
     }
   };
 

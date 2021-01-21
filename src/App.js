@@ -1,4 +1,5 @@
 import { Component } from "react";
+import React, { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import NavMenu from "./components/NavMenu";
@@ -8,6 +9,7 @@ import FormSection from "./components/FormSection";
 import Footer from "./components/Footer";
 
 const el = document.querySelector(".btn-burger");
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 class App extends Component {
   state = {
@@ -27,10 +29,14 @@ class App extends Component {
     this.setState({
       isActive: true,
     });
-    console.log(this.el);
   };
 
   render() {
+    const active = () => {
+      if (this.state.isActive == true) {
+      }
+    };
+    active();
     return (
       <div className="App">
         <NavMenu
