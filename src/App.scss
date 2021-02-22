@@ -1,127 +1,113 @@
 @import "scss/_variabless";
-
 body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Anton", sans-serif;
-
-  nav {
-    &.nav-menu {
-      height: 60px;
-
-      color: $white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      ul {
-        margin: 0;
-        display: flex;
-        height: 100%;
-        align-items: center;
-
-        li {
-          list-style-type: none;
-          margin-right: 20px;
-          font-size: 20px;
-          color: $orange-pantose;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Anton", sans-serif;
+    nav {
+        &.nav-menu {
+            height: 60px;
+            color: $white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            ul {
+                margin: 0;
+                display: flex;
+                height: 100%;
+                align-items: center;
+                li {
+                    list-style-type: none;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    color: $orange-pantose;
+                }
+                &.active {
+                    display: none;
+                }
+            }
+            .btn-burger {
+                width: 40px;
+                height: 25px;
+                border: 0;
+                padding: 0;
+                span {
+                    display: block;
+                    top: 0;
+                    height: 5px;
+                    width: 100%;
+                    display: block;
+                    background: $orange-pantose;
+                    margin-bottom: 5px;
+                }
+            }
         }
-
-        &.active {
-          display: none;
+    }
+    header {
+        height: calc(100vh - 80px);
+        background-image: url("./assets/wallet.png");
+        background-size: 35%;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-color: red;
+        .jumbotron {
+            background: transparent;
+            color: $white;
+            height: 100%;
+            .container {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                justify-content: center;
+            }
         }
-      }
-
-      .btn-burger {
-        width: 40px;
-        height: 25px;
-        border: 0;
-        padding: 0;
-
-        span {
-          display: block;
-          top: 0;
-          height: 5px;
-          width: 100%;
-          display: block;
-          background: $orange-pantose;
-          margin-bottom: 5px;
+    }
+    .get-start {
+        margin: (30px 0px 30px 0px);
+        &__btn {
+            text-align: center;
+            margin-top: 30px;
         }
-      }
+        h2,
+        h3 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .img-wrapper {
+            text-align: center;
+        }
     }
-  }
-
-  header {
-    height: calc(100vh - 80px);
-    background-image: url("./assets/wallet.png");
-    background-size: 35%;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-color: red;
-
-    .jumbotron {
-      background: transparent;
-      color: $white;
-      height: 100%;
-
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: center;
-      }
-    }
-  }
-
-  .get-start {
-    margin: (30px 0px 30px 0px);
-
-    &__btn {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    h2,
-    h3 {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .img-wrapper {
-      text-align: center;
-    }
-  }
 }
 
 .form-section {
-  background-color: #f8f9fa;
-  padding: 30px 0;
-
-  &.isActive {
-    display: block;
-  }
-
-  h2,
-  h4 {
-    margin-bottom: 40px;
-  }
-
-  .progress {
-    margin-bottom: 40px;
-  }
-
-  input[type="range"] {
-    width: 100%;
-  }
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    &.isActive {
+        display: block;
+    }
+    h2,
+    h4 {
+        margin-bottom: 40px;
+    }
+    .progress {
+        margin-bottom: 40px;
+    }
+    input[type="range"] {
+        width: 100%;
+    }
 }
+
 .hide {
-  display: none;
+    display: none;
 }
 
 footer {
-  height: 100px;
-  background: grey;
-  padding: 20px;
+    height: 100px;
+    background: grey;
+    padding: 20px;
+}
+
+.table {
+    margin-top: 50px;
 }

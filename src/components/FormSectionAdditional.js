@@ -18,7 +18,11 @@ class FormSectionAdditional extends Component {
           />
         </div>
         <div className="col">
-          <button onClick type="button" className="btn btn-primary">
+          <button
+            onClick={this.props.click}
+            type="button"
+            className="btn btn-primary"
+          >
             Dodaj {salaryValue}
           </button>
         </div>

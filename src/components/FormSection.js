@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import FormSectionAdditional from "./FormSectionAdditional";
+import BalanceTable from "./BalanceTable";
 
 class FormSection extends Component {
   state = {
@@ -49,6 +50,10 @@ class FormSection extends Component {
     });
   };
 
+  listClick = () => {
+    return this.state.additionalValue;
+  };
+
   render() {
     const now = `${(
       100 -
@@ -80,7 +85,7 @@ class FormSection extends Component {
                       type="button"
                       className="btn btn-primary"
                     >
-                      Dodaj
+                      Dodaj wplyw
                     </button>
                   </div>
                 </div>
@@ -136,7 +141,6 @@ class FormSection extends Component {
               <span>{this.state.rangeValue}pln</span>
             </div>
           </div>
-
           <div className="row">
             <div className="col">
               {(this.state.value != null) &
@@ -144,10 +148,18 @@ class FormSection extends Component {
                 <FormSectionAdditional
                   change={this.handleChangeAdditional}
                   salary={this.state.value}
+                  click={this.listClick}
                 />
               ) : null}
             </div>
-            <div className="col"></div>
+            <div className="col">
+              {this.state.valueIsActive ? (
+                <BalanceTable
+                  salary={this.state.value}
+                  additional={this.state.additionalValue}
+                />
+              ) : null}
+            </div>
           </div>
         </div>
       </section>
